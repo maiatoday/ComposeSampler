@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.maiatoday.composesampler.ui.theme.ComposeSamplerTheme
+import net.maiatoday.composesampler.ui.theme.LunoTheme
 
 data class PieData(
     val foreground: Color = Color.White,
@@ -62,7 +63,7 @@ fun PieStatus(
     uiMode = UI_MODE_NIGHT_NO)
 @Composable
 fun DefaultPreview() {
-    ComposeSamplerTheme {
+    LunoTheme {
         PieStatus(
             modifier = Modifier
                 .size(56.dp)

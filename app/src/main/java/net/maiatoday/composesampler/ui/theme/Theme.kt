@@ -45,3 +45,40 @@ fun ComposeSamplerTheme(
         content = content
     )
 }
+
+private val LunoDarkColorPalette = darkColors(
+    primary = MoonBlue500,
+    onPrimary = RocketWhite,
+    primaryVariant = MoonBlue900,
+    secondary = EarthBlue500,
+    onSecondary = RocketWhite,
+    surface = BlackHoleBlue,
+    background = BlackHoleBlue
+)
+
+private val LunoLightColorPalette = lightColors(
+    primary = MoonBlue900,
+    onPrimary = RocketWhite,
+    primaryVariant = MoonBlue500,
+    secondary = EarthBlue500,
+    onSecondary = RocketWhite
+)
+
+@Composable
+fun LunoTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable() () -> Unit
+) {
+    val colors = if (darkTheme) {
+        LunoDarkColorPalette
+    } else {
+        LunoLightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        typography = Typography,
+        shapes = Shapes,
+        content = content
+    )
+}
