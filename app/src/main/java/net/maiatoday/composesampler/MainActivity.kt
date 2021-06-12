@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.maiatoday.composesampler.ui.components.PieData
 import net.maiatoday.composesampler.ui.components.PieStatus
+import net.maiatoday.composesampler.ui.components.RandomPieButton
 import net.maiatoday.composesampler.ui.theme.ComposeSamplerTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,9 +36,8 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String) {
     Row {
         Text(text = "Hello $name!")
-        PieStatus(
-            modifier = Modifier.size(56.dp).padding(2.dp),
-            pieData = PieData(foreground = MaterialTheme.colors.onSurface, percentage = 0.8f)
+        RandomPieButton(
+            modifier = Modifier.size(64.dp).padding(2.dp)
         )
     }
 }

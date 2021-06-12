@@ -34,7 +34,7 @@ fun PieStatus(
     var animationPlayed by remember { mutableStateOf(false) }
     val currentPercentage = animateFloatAsState(
         targetValue = if (animationPlayed) pieData.percentage else 0f,
-        animationSpec = tween(3000)
+        animationSpec = tween(1000)
     )
     LaunchedEffect(key1 = true) {
         animationPlayed = true
