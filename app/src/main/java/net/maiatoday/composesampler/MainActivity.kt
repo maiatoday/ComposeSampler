@@ -1,14 +1,17 @@
 package net.maiatoday.composesampler
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,7 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeSamplerTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colors.surface) {
                     Greeting("Android")
                 }
             }
@@ -34,15 +37,29 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Row {
-        Text(text = "Hello $name!")
+    Column {
+        Text(
+            text = "Hello $name!",
+            color = contentColorFor(backgroundColor = MaterialTheme.colors.surface)
+        )
         RandomPieButton(
-            modifier = Modifier.size(64.dp).padding(2.dp)
+            modifier = Modifier
+                .size(64.dp)
+                .padding(2.dp)
         )
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    name = "Main Screen Night Preview",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true
+)
+@Preview(
+    name = "MainScreen Day Preview",
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    showBackground = true
+)
 @Composable
 fun DefaultPreview() {
     ComposeSamplerTheme {

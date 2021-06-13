@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -22,7 +23,7 @@ fun RandomPieButton(modifier: Modifier = Modifier) {
             modifier = modifier,
             pieData = PieData(
                 strokeWidth = 6.dp,
-                foreground = MaterialTheme.colors.onSurface,
+                foreground = contentColorFor(backgroundColor = MaterialTheme.colors.primary),
                 percentage = percentage
             )
         )
