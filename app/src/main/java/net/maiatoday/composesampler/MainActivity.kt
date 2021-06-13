@@ -24,10 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeSamplerTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.surface) {
-                    Greeting("Android")
-                }
+                Greeting("Android")
             }
         }
     }
@@ -40,11 +37,12 @@ fun Greeting(name: String) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = "Hello $name!",
-            modifier = Modifier.padding(8.dp),
-            color = contentColorFor(backgroundColor = MaterialTheme.colors.surface)
-        )
+        Surface {
+            Text(
+                text = "Hello $name!",
+                modifier = Modifier.padding(8.dp)
+            )
+        }
         RandomPieButton(
             modifier = Modifier
                 .size(64.dp)
